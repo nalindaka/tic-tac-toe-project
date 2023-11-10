@@ -7,7 +7,7 @@ function App() {
   const [activePlayer, setActivePlayer] = useState("X");
   const [gameTurns, setGameTurns] = useState([]);
 
-  function handleSelectSquare({ rowIndex, colIndex }) {
+  function handleSelectSquare(rowIndex, colIndex) {
     setActivePlayer((currentActivePlayer) =>
       currentActivePlayer === "X" ? "O" : "X"
     );
@@ -42,10 +42,7 @@ function App() {
             isActive={activePlayer === "O"}
           />
         </ol>
-        <GameBoard
-          onSelectSquare={handleSelectSquare}
-          activePlayerSymbol={activePlayer}
-        />
+        <GameBoard onSelectSquare={handleSelectSquare} turns={gameTurns} />
       </div>
       <Log />
     </main>
